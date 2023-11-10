@@ -1,4 +1,4 @@
-function [] = MoveArm(theta1,theta2,theta3)
+function [] = MoveArm(theta1,theta2,theta3,s)
 th1_deg= theta1;
 th2_deg= theta2;
 th3_deg= theta3;
