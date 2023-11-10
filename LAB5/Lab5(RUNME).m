@@ -69,7 +69,7 @@ polynomial53 = GeneratePolynomialLab5(thetaPos5(3),thetaPos1(3));
 
 %number of commands sent to the robot (should take 5 sec to move, so 1
 %operation every 1 sec? (5 points?)
-opIT = linspace(0,5,5);
+opIT = 1:5;
 
 %NOMENCLATURE operation# = [joint1 angle matrix;joint2 angle
 %matrix;joint3 angle matrix;]
