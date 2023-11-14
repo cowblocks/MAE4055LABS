@@ -3,12 +3,13 @@
 %Setup USB
 qUSB = input('do you want to setup USB: 1 = yes 0 = no:');
 if qUSB == 1
-    s = serial('COM1');
+    s = serial('COM3');
     set(s,'Terminator','CR');
     fopen(s);
 end
 
 %Go to neutral
+MoveArm(90,-90,0,s);
 
 %TODO
 
@@ -88,13 +89,16 @@ operation5 = [polyval(polynomial51,opIT);polyval(polynomial52,opIT);polyval(poly
 %BING BANG BOOM
 %Plug the operations into the Robot using More Spagettiii, YUMM I LOVE
 %SPAGETIII
-
+positiontext = ('position1')
+pause(5);
 for i = opIT
     %Send Cmnd To ROBOTO
     MoveArm(operation1(1,i),operation1(2,i),operation1(3,i),s);
     %pause for a second
     pause(5/length(opIT));
 end
+positiontext = ('position2')
+pause(5);
 %operation2
 for i = opIT
     %Send Cmnd To ROBOTO
@@ -102,6 +106,8 @@ for i = opIT
     %pause for a second
     pause(5/length(opIT));
 end
+positiontext = ('position3')
+pause(5);
 %operation3
 for i = opIT
     %Send Cmnd To ROBOTO
@@ -109,6 +115,8 @@ for i = opIT
     %pause for a second
     pause(5/length(opIT));
 end
+positiontext = ('position4')
+pause(5);
 %operation4
 for i = opIT
     %Send Cmnd To ROBOTO
@@ -116,6 +124,8 @@ for i = opIT
     %pause for a second
     pause(5/length(opIT));
 end
+positiontext = ('position5')
+pause(5);
 %operation 5
 for i = opIT
     %Send Cmnd To ROBOTO
@@ -123,6 +133,8 @@ for i = opIT
     %pause for a second
     pause(5/length(opIT));
 end
+positiontext = ('position6')
+pause(5);
 thEnd = 'end'
 
 %Trapazoidal Movement
