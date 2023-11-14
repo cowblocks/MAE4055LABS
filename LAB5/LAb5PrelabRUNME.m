@@ -31,3 +31,5 @@ xlabel('Time (sec)');
 ylabel('dTheta (Degree)');
 grid("on");
 figure();
+
+%Find Trapazoidal Path for Robot Arm
