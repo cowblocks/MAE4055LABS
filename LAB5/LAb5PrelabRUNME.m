@@ -33,3 +33,6 @@ grid("on");
 figure();
 
 %Find Trapazoidal Path for Robot Arm
+%In it's own self contained func Lab05Trap
+Lab05Trap;
+

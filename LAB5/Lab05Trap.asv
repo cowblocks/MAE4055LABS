@@ -64,7 +64,6 @@ thirdSegInitialCond = thirdSegYValue - polyval(polyint(derOfPolynomialThirdSeg),
 %put initial condition into polynomial form
 thirdSegInitialCond = [0,0,thirdSegInitialCond];
 
-%plot the three polynomials
 plot(tSpaceSeg1,polyval(polyint(derOfPolynomialFirstSeg)+initialCondition,tSpaceSeg1));
 hold on
 
@@ -72,24 +71,8 @@ plot(tSpaceSeg2,polyval(polyint(derOfPolynomialSecondSeg)+secondSegInitialCond,t
 hold on
 
 plot(tSpaceSeg3,polyval(polyint(derOfPolynomialThirdSeg)+thirdSegInitialCond,tSpaceSeg3));
-title('Plot Displacement of theta for 5 sec interval for Trapadoid');
+title('Plot Velocity of theta for 5 sec interval for 5 deg polynomial');
 xlabel('Time (sec)');
-ylabel('Theta (Degree)');
-xlim([0,5]);
-grid("on");
-figure();
-
-%Plot the acceleleration on the trap curve using our trusty friend
-%polyder()
-plot(tSpaceSeg1,polyval(polyder(derOfPolynomialFirstSeg),tSpaceSeg1));
-hold on
-
-plot(tSpaceSeg2,polyval(polyder(derOfPolynomialSecondSeg),tSpaceSeg2));
-hold on
-
-plot(tSpaceSeg3,polyval(polyder(derOfPolynomialThirdSeg),tSpaceSeg3));
-title('Plot Acceleration of theta for 5 sec interval for Trapazoid');
-xlabel('Time (sec)');
-ylabel('d^2Theta (Degree)');
+ylabel('dTheta (Degree)');
 xlim([0,5]);
 grid("on");

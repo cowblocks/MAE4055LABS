@@ -14,4 +14,25 @@ title('Plot of 5th deg polynomial for theta for 5 sec movement');
 xlabel('Time (sec)');
 ylabel('Theta (Degree)');
 grid("on");
+figure();
+
+%plots the Velocity of Theta over 5 sec
+plot(t,polyval(polyder(prelabPoly),t));
+title('Plot velocity of theta for 5 sec interval for 5 deg polynomial');
+xlabel('Time (sec)');
+ylabel('dTheta (Degree)');
+grid("on");
+figure();
+
+%plots the acceleration of Theta over 5 sec
+plot(t,polyval(polyder(polyder(prelabPoly)),t));
+title('Plot acceleration of theta for 5 sec interval for 5 deg polynomial');
+xlabel('Time (sec)');
+ylabel('dTheta (Degree)');
+grid("on");
+figure();
+
+%Find Trapazoidal Path for Robot Arm
+%In it's own self contained func Lab05Trap
+Lab05Trap()
 
