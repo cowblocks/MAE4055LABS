@@ -1,0 +1,4 @@
+function [] = MoveArmToCoordinates(objX,objY,s)
+
+end
+

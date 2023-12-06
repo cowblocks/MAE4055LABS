@@ -1,0 +1,20 @@
+function [] = MoveArmVerticalTrap(x,y,distance,s)
+
+%trapazoidalCalc
+y1 = y + distance/4
+y2 = y + 3* distance/4
+y3 = y + distance
+
+%move Arm to y1
+thetaJoint = Lab3Func(x,y1,-90);
+MoveArm(thetaJoint(1),thetaJoint(2),thetaJoint(3));
+
+%moveArm to y2
+
+
+
+%moveArm to y3
+
+
+end
+

@@ -1,52 +1,38 @@
 %Final Move Cmd
 
 %Setup USB
-qUSB = input('do you want to setup USB: 1 = yes 0 = no:');
+qUSB = input('do you want to setup USB: 1 = yes 0 = no 2 = fakeS: ');
 if qUSB == 1
     s = serial('COM3');
     set(s,'Terminator','CR');
     fopen(s);
+else qUSB == 2
+    s = fopen('source.txt')
 end
 
 %Go to neutral
 MoveArm(90,-90,0,s);
+%OpenEE
+command = sprintf('#5 P%i T2000',500);
+fprintf(s, command);
 
-objCoordx = 10;
-objCoordy = 10;
-objectRotation = (theta);
+pause(1);
 
-lengthLink1 = 5;
-heightLink1 = 0.5;
+mainMode = input('which part do you want to execute 1,2 or 3: ');
 
-%calculate the log distance from base
-distFromBase = hypot(objCoordx,objCoordy);
+if mainMode == 1
+    objCoordx = 0;
+    objCoordy = 7;
+    objectRotation = (0);
+    
+    FinalPart1Func(objCoordx,objCoordy,objectRotation,s);
+elseif mainMode == 2
+    objCoordx = input('object x Location: ');
+    objCoordy = input('object y Location: ');
+    objectRotation = input('object rotation: ');
+    FinalPart2Func()
+elseif mainMode == 3
+    FinalPart3Func(s);
+end
 
-%calculate the rotation of the base
-baseRot = atand(objCoordy/objCoordy);
 
-%rotate the base
-RotateBase(baseRot,s);
-
-%move arm to above log
-thetaMove = Lab3Func(distFromBase,heightLink1,-90);
-moveArm(thetaMove(1),thetaMove(2),thetaMove(3));
-
-%calculate end effector rotation
-modifiedEERot = objectRotation + (90 - baseRot);
-%Rotate end effector to
-RotateEndEffector(modifiedEERot,s);
-
-pause(2);
-
-%moveArmDown to the log
-thetaMove = Lab3Func(distFromBase,0,-90);
-moveArm(thetaMove(1),thetaMove(2),thetaMove(3));
-
-%CloseTheEE
-command = sprintf('#5 P%i T1000',500);
-
-pause(2);
-
-%moveArmVertical
-thetaMove = Lab3Func(distFromBase,lengthLink1,-90);
-moveArm(thetaMove(1),thetaMove(2),thetaMove(3));
